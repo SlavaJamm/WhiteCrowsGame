@@ -1,0 +1,135 @@
+html, body{
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	overflow: hidden;
+	font-family: 'Shadows Into Light', cursive;
+}
+body{
+	background-color: #fff;
+}
+body.--night{
+	background-color: #000;
+}
+
+.start-page{
+	height: 100%;
+	width: 100%;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	flex-direction: column;
+	-ms-align-items: center;
+	align-items: center;
+	justify-content: center;
+}
+.slavajamm{
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+body.--night .slavajamm{
+	display: none;
+}
+.start-page--click{
+	cursor: pointer;
+}
+.crows-container{
+	bottom: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+}
+.crows-container svg#smallBirds{
+	height: 100%;
+	position: absolute;
+	animation: birdsMoveSmall 101s ease infinite;
+	opacity: 0.6;
+}
+.crows-container svg#mediumBirds{
+	height: 100%;
+	position: absolute;
+	animation: birdsMoveSmall 101s ease-out infinite;
+	opacity: 0.8;
+}
+.crows-container svg#birdsBig{
+	height: 100%;
+	position: absolute;
+	animation: birdsMoveSmall 101s linear infinite;
+	opacity: 1;
+	background: transparent;
+}
+.crows-container svg path{
+	cursor: pointer;
+}
+.crows-container svg path:hover{
+	fill: #ffffff;
+	cursor: pointer;
+	transition: 1s all;
+	stroke-dasharray: 200;
+	animation: dash 4s;	
+}
+.change-time{
+	display: none;
+	position: absolute;
+    bottom: 10px;
+    height: 100px;
+    width: 100px;
+    right: 10px;
+    cursor: pointer;
+	animation: dash 4s;	
+	background: url(img/moon.svg);
+}
+.change-time.--night{
+	background: url(img/sun.svg);
+	background-size: cover;
+}
+body.--night .crows-container svg path:hover{
+	fill: #000;
+	stroke: #fff;
+	stroke-width: 0.1px;
+	cursor: pointer;
+	transition: 1s all;
+	stroke-dasharray: 200;
+	animation: dash 4s;	
+}
+audio{
+	display: block!important;
+}
+a[href="#start"],
+a[href="#stop"],
+a[href="#reset"]{
+	visibility: hidden;
+}
+
+@keyframes dash{
+	0%{
+		stroke-dashoffset: 200;
+		opacity: 0;
+	}
+	13%{
+		opacity: 1;
+	}
+	100%{
+		stroke-dashoffset:0;
+	}
+}
+@keyframes birdsMoveSmall{
+	0%{
+		left: 0;
+	}
+	50%{
+		left: -100%;
+	}
+	100%{
+		left: 0;		
+	}
+}
+
+@media (max-width: 1024px) {
+	.crows-container svg{
+		height: 100%;
+	}
+}
